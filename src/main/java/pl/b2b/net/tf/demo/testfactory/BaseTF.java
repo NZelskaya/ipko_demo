@@ -11,7 +11,7 @@ import pl.b2b.testfactory.annotations.TestFactoryMethod;
 public class BaseTF {
     @Test
     @TestFactoryMethod(value = "Start", description = "Open browser. For FireFox enter FF", group = "Configuration")
-    @Parameters({"pl/b2b/net/tf/demo/driver"})
+    @Parameters({"driver"})
     public static void setUp(String driver) throws Exception {
         DriverSetup.setDriver(driver);
     }
