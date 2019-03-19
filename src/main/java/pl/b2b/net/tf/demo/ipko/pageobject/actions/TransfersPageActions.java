@@ -15,13 +15,13 @@ public class TransfersPageActions extends TransfersPage {
 
     private static final String FULL_ENDPOINT = IPKO_URL + "/index.html#transactions/transfers";
 
-    public void makeTransfer(String transfer, String title, String fromAccount, String toAccount) {
+    public void makeTransfer(String transfer, String fromAccount, String toAccount, String amount, String adress, String recipientName, String currency, String title) {
         waitForAjax();
         waitForPageLoadComplete(FULL_ENDPOINT);
 
         switch (TransfersEnum.valueOf(transfer)) {
             case ONE_TIME:
-                makeOneTimeTransfer(title, fromAccount);
+                makeOneTimeTransfer(fromAccount, toAccount, amount, adress, recipientName, currency, title);
                 break;
             case OWN_ACCOUNT:
                 makeOwnAccountTransfer(title, fromAccount, toAccount);
@@ -53,14 +53,22 @@ public class TransfersPageActions extends TransfersPage {
         Assert.assertTrue(text.contains(expectedToValue), String.format("Expected message %s to contain %s", text, expectedToValue));
     }
 
-    private void makeOneTimeTransfer(String title, String fromAccount) {
+    private void makeOneTimeTransfer(String fromAccount, String toAccount, String amount, String adress, String recipientName, String currency, String title) {
         click(transferTab(ONE_TIME.getFullName()));
         waitForAjax();
 
-        type(titleTextFiled, title);
-
         click(fromAccountIconDropDown());
         click(fromAccountDropDown(fromAccount));
+
+        type(amountInput, amount);
+        click(currencyIconDropDown);
+        click(currencyValue(currency));
+
+        type(recipientNameInput, recipientName);
+        type(toAccountInput, toAccount);
+        type(adressInput, adress);
+        type(titleTextFiled, title);
+
         waitForAjax();
 
         click(dalejBtn());

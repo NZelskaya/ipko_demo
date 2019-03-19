@@ -11,10 +11,10 @@ public class LoginPage extends AbstractPageObject {
         super(driver);
     }
 
-    @FindBy(css = ".r-login-box input")
+    @FindBy(xpath = "//*[@class='r-login-box-login']//input")
     protected WebElement loginTextField;
 
-    @FindBy(css = ".r-login-box input[type='password']")
+    @FindBy(xpath = "//input[@type='password']")
     protected WebElement passwordTextField;
 
     @FindBy(css = ".r-login-box .ui-button-text")

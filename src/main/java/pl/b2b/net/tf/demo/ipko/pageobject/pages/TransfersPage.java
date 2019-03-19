@@ -13,8 +13,30 @@ public class TransfersPage extends AbstractPageObject {
         super(driver);
     }
 
-    @FindBy(css = ".f-title")
+    @FindBy(xpath = "//*[contains(@class,'f-title')]")
     protected WebElement titleTextFiled;
+
+    @FindBy(xpath = "//*[contains(@class,'f-amount')]")
+    protected WebElement amountInput;
+
+    @FindBy(xpath = "//*[contains(@class,'f-recipient-address')]")
+    protected WebElement adressInput;
+
+    @FindBy(xpath = "//*[contains(@class,'f-recipient-name')]")
+    protected WebElement recipientNameInput;
+
+    @FindBy(xpath = "//*[contains(@class,'f-account-to')]")
+    protected WebElement toAccountInput;
+
+    @FindBy(xpath = "//*[contains(@class,'f-currency')]/..//div/b")
+    protected WebElement currencyIconDropDown;
+
+    protected WebElement currencyValue(String currency) {
+        return driver.findElements(By.xpath("//span[contains(@class,'size-currency-short')]//*[@class='jspPane']//li"))
+                .stream()
+                .filter(e -> e.getText().equals(currency))
+                .findFirst().get();
+    }
 
     protected WebElement dalejBtn() {
         return nextBtn("Dalej");

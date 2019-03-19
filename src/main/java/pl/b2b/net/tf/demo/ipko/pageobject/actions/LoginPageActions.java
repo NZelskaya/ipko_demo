@@ -1,10 +1,8 @@
 package pl.b2b.net.tf.demo.ipko.pageobject.actions;
 
 import org.openqa.selenium.WebDriver;
-import pl.b2b.net.tf.demo.GlobalDefinitions;
 import pl.b2b.net.tf.demo.ipko.pageobject.pages.LoginPage;
 
-import javax.swing.*;
 
 import static pl.b2b.net.tf.demo.GlobalDefinitions.IPKO_URL;
 
@@ -20,11 +18,11 @@ public class LoginPageActions extends LoginPage {
 
         waitForPageLoadComplete(FUll_URL);
 
-        waitForElementToBeVisible(loginTextField);
+        type(loginTextField, pid);
         click(nextBtn);
+        waitForAjax();
 
-        waitForElementToBeVisible(passwordTextField);
-
+        type(passwordTextField, password);
         waitForAjax();
         click(nextBtn);
 

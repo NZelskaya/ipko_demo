@@ -40,9 +40,9 @@ public class TestFactorySteps extends BaseTF {
 
     @Test
     @TestFactoryMethod(value = "Wykonaj przelew", description = "ONE_TIME,OWN_ACCOUNT,ZUS,TAX,FROM_CARD,CARD_PAYMENT,FOREIGN", group = "Przelewy")
-    @Parameters({"typPrzelewu", "zKonta", "naKonto", "kwota", "tytul", "adres"})
-    public void makeTransfer(String typPrzelewu, String zKonta, String naKonto, String kwota, String tytul, String adres) {
-        transferPage.makeTransfer(typPrzelewu, tytul, zKonta, naKonto);
+    @Parameters({"typPrzelewu", "zKonta", "naKonto", "kwota", "odbiorca", "waluta", "tytul", "adres"})
+    public void makeTransfer(String typPrzelewu, String zKonta, String naKonto, String kwota, String odbiorca, String waluta, String tytul, String adres) {
+        transferPage.makeTransfer(typPrzelewu, zKonta, naKonto, kwota, adres, odbiorca, waluta, tytul);
     }
 
     @Test
