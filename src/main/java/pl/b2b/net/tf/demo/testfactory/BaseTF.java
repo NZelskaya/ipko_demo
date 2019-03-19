@@ -1,4 +1,4 @@
-package pl.b2b.net.tf.demo.ipko.testfactory;
+package pl.b2b.net.tf.demo.testfactory;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;

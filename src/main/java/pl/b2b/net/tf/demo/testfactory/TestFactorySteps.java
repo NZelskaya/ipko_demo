@@ -1,4 +1,4 @@
-package pl.b2b.net.tf.demo.ipko.testfactory;
+package pl.b2b.net.tf.demo.testfactory;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
@@ -26,7 +26,7 @@ public class TestFactorySteps extends BaseTF {
     }
 
     @Test
-    @TestFactoryMethod(value = "Logowanie", description = "Logowanie na konto", group = "Login")
+    @TestFactoryMethod(value = "Logowanie", description = "Logowanie na konto", group = "Logowanie")
     @Parameters({"pid", "haslo"})
     public void login(String pid, String haslo) {
         loginPage.loginToAccount(pid, haslo);
